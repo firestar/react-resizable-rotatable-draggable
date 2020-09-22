@@ -71,6 +71,7 @@ class App extends Component {
           left={left}
           top={top}
           width={width}
+          style={{background:"#fff"}}
           height={height}
           rotateAngle={rotateAngle}
           // aspectRatio={false}
@@ -104,6 +105,8 @@ export default App
 |top          | number.isRequired       |         | 10                                    |
 |width        | number.isRequired       |         | 100                                   |
 |height       | number.isRequired       |         | 100                                   |
+|style        | object                  | {}      | {background:"#ff0000"}                |
+|children     | object                  |         |                                       |
 |rotateAngle  | number                  | 0       | 0                                     |
 |rotatable    | bool                    | true    | true                                  |
 |zoomable     | string                  | ''      | 'n, w, s, e, nw, ne, se, sw'          |

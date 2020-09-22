@@ -5,6 +5,10 @@ import { centerToTL, tLToCenter, getNewStyle, degToRadian } from './utils'
 
 export default class ResizableRect extends Component {
   static propTypes = {
+    children: PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.node),
+      PropTypes.node
+    ]),
     left: PropTypes.number.isRequired,
     top: PropTypes.number.isRequired,
     width: PropTypes.number.isRequired,
@@ -13,6 +17,8 @@ export default class ResizableRect extends Component {
     rotateAngle: PropTypes.number,
     parentRotateAngle: PropTypes.number,
     zoomable: PropTypes.string,
+    className: PropTypes.string,
+    style: PropTypes.object,
     minWidth: PropTypes.number,
     minHeight: PropTypes.number,
     aspectRatio: PropTypes.oneOfType([
@@ -35,6 +41,8 @@ export default class ResizableRect extends Component {
     rotateAngle: 0,
     rotatable: true,
     zoomable: '',
+    className: "",
+    style: {},
     minWidth: 10,
     minHeight: 10
   }
@@ -80,6 +88,7 @@ export default class ResizableRect extends Component {
 
   render () {
     const {
+      children, className, style,
       top, left, width, height, rotateAngle, parentRotateAngle, zoomable, rotatable,
       onRotate, onResizeStart, onResizeEnd, onRotateStart, onRotateEnd, onDragStart, onDragEnd
     } = this.props
@@ -89,6 +98,8 @@ export default class ResizableRect extends Component {
     return (
       <Rect
         styles={styles}
+        rectStyle={style}
+        className={className}
         zoomable={zoomable}
         rotatable={Boolean(rotatable && onRotate)}
         parentRotateAngle={parentRotateAngle}
@@ -104,6 +115,7 @@ export default class ResizableRect extends Component {
         onDragStart={onDragStart}
         onDrag={this.handleDrag}
         onDragEnd={onDragEnd}
+        children={children}
       />
     )
   }

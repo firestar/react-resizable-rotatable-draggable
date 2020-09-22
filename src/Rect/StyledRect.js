@@ -8,6 +8,7 @@ export default styled.div`
     position: absolute;
     width: 7px;
     height: 7px;
+    opacity:0.9;
     background: white;
     border: 1px solid #eb5648;
     border-radius: 1px;
