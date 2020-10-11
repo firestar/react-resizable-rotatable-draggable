@@ -5,6 +5,7 @@ import { centerToTL, tLToCenter, getNewStyle, degToRadian } from './utils'
 
 export default class ResizableRect extends Component {
   static propTypes = {
+    id: PropTypes.number,
     children: PropTypes.oneOfType([
       PropTypes.arrayOf(PropTypes.node),
       PropTypes.node
@@ -41,7 +42,7 @@ export default class ResizableRect extends Component {
     rotateAngle: 0,
     rotatable: true,
     zoomable: '',
-    className: "",
+    className: '',
     style: {},
     minWidth: 10,
     minHeight: 10
@@ -88,7 +89,7 @@ export default class ResizableRect extends Component {
 
   render () {
     const {
-      children, className, style,
+      id, children, className, style,
       top, left, width, height, rotateAngle, parentRotateAngle, zoomable, rotatable,
       onRotate, onResizeStart, onResizeEnd, onRotateStart, onRotateEnd, onDragStart, onDragEnd
     } = this.props
@@ -97,6 +98,7 @@ export default class ResizableRect extends Component {
 
     return (
       <Rect
+        id={id}
         styles={styles}
         rectStyle={style}
         className={className}

@@ -16,6 +16,7 @@ const zoomableMap = {
 
 export default class Rect extends PureComponent {
   static propTypes = {
+    id: PropTypes.number,
     children: PropTypes.oneOfType([
       PropTypes.arrayOf(PropTypes.node),
       PropTypes.node
@@ -139,6 +140,7 @@ export default class Rect extends PureComponent {
 
   render () {
     const {
+      id,
       children,
       styles: {
         position: { centerX, centerY },
@@ -164,6 +166,7 @@ export default class Rect extends PureComponent {
     return (
       <StyledRect
         ref={this.setElementRef}
+        id={this.id}
         onMouseDown={this.startDrag}
         className={`rect single-resizer ${className}`}
         style={style}
