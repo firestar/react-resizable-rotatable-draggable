@@ -166,7 +166,7 @@ export default class Rect extends PureComponent {
     return (
       <StyledRect
         ref={this.setElementRef}
-        id={this.id}
+        id={id}
         onMouseDown={this.startDrag}
         className={`rect single-resizer ${className}`}
         style={style}
