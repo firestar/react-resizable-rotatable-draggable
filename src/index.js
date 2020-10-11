@@ -5,7 +5,7 @@ import { centerToTL, tLToCenter, getNewStyle, degToRadian } from './utils'
 
 export default class ResizableRect extends Component {
   static propTypes = {
-    id: PropTypes.number,
+    id: PropTypes.string,
     children: PropTypes.oneOfType([
       PropTypes.arrayOf(PropTypes.node),
       PropTypes.node

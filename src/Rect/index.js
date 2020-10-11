@@ -16,7 +16,7 @@ const zoomableMap = {
 
 export default class Rect extends PureComponent {
   static propTypes = {
-    id: PropTypes.number,
+    id: PropTypes.string,
     children: PropTypes.oneOfType([
       PropTypes.arrayOf(PropTypes.node),
       PropTypes.node
