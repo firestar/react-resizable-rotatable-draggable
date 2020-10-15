@@ -652,7 +652,7 @@ function (_PureComponent) {
         ref: this.setElementRef,
         id: id,
         onMouseDown: function onMouseDown(e) {
-          if (e.button === 1) {
+          if (e.which === 1) {
             _this2.startDrag(e);
           }
         },
@@ -661,7 +661,7 @@ function (_PureComponent) {
       }, rotatable && React__default.createElement("div", {
         className: "rotate",
         onMouseDown: function onMouseDown(e) {
-          if (e.button === 1) {
+          if (e.which === 1) {
             _this2.startRotate(e);
           }
         }
@@ -682,7 +682,7 @@ function (_PureComponent) {
           },
           className: "".concat(zoomableMap[d], " resizable-handler"),
           onMouseDown: function onMouseDown(e) {
-            if (e.button === 1) {
+            if (e.which === 1) {
               _this2.startResize(e, cursor);
             }
           }
