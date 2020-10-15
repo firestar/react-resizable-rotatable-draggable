@@ -168,7 +168,8 @@ export default class Rect extends PureComponent {
         ref={this.setElementRef}
         id={id}
         onMouseDown={(e) => {
-          if (e.which === 1) {
+          console.log(e)
+          if (e.button === 0) {
             this.startDrag(e)
           }
         }}
@@ -178,7 +179,8 @@ export default class Rect extends PureComponent {
         {
           rotatable &&
           <div className="rotate" onMouseDown={(e) => {
-            if (e.which === 1) {
+            console.log(e)
+            if (e.button === 0) {
               this.startRotate(e)
             }
           }}>
@@ -197,7 +199,8 @@ export default class Rect extends PureComponent {
             const cursor = `${getCursor(rotateAngle + parentRotateAngle, d)}-resize`
             return (
               <div key={d} style={{ cursor }} className={`${zoomableMap[ d ]} resizable-handler`} onMouseDown={(e) => {
-                if (e.which === 1) {
+                console.log(e)
+                if (e.button === 0) {
                   this.startResize(e, cursor)
                 }
               }} />
