@@ -613,6 +613,7 @@ function (_PureComponent) {
       var _this2 = this;
 
       var _this$props = this.props,
+          id = _this$props.id,
           children = _this$props.children,
           _this$props$styles2 = _this$props.styles,
           _this$props$styles2$p = _this$props$styles2.position,
@@ -644,12 +645,21 @@ function (_PureComponent) {
 
       return React.createElement(StyledRect, {
         ref: this.setElementRef,
-        onMouseDown: this.startDrag,
+        id: id,
+        onMouseDown: function onMouseDown(e) {
+          if (e.button === 1) {
+            _this2.startDrag(e);
+          }
+        },
         className: "rect single-resizer ".concat(className),
         style: style
       }, rotatable && React.createElement("div", {
         className: "rotate",
-        onMouseDown: this.startRotate
+        onMouseDown: function onMouseDown(e) {
+          if (e.button === 1) {
+            _this2.startRotate(e);
+          }
+        }
       }, React.createElement("svg", {
         width: "14",
         height: "14",
@@ -667,7 +677,9 @@ function (_PureComponent) {
           },
           className: "".concat(zoomableMap[d], " resizable-handler"),
           onMouseDown: function onMouseDown(e) {
-            return _this2.startResize(e, cursor);
+            if (e.button === 1) {
+              _this2.startResize(e, cursor);
+            }
           }
         });
       }), direction.map(function (d) {
@@ -683,6 +695,7 @@ function (_PureComponent) {
 }(PureComponent);
 
 _defineProperty(Rect, "propTypes", {
+  id: PropTypes.string,
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
   styles: PropTypes.object,
   className: PropTypes.string,
@@ -785,6 +798,7 @@ function (_Component) {
     key: "render",
     value: function render() {
       var _this$props2 = this.props,
+          id = _this$props2.id,
           children = _this$props2.children,
           className = _this$props2.className,
           style = _this$props2.style,
@@ -811,6 +825,7 @@ function (_Component) {
         rotateAngle: rotateAngle
       });
       return React.createElement(Rect, {
+        id: id,
         styles: styles,
         rectStyle: style,
         className: className,
@@ -835,6 +850,7 @@ function (_Component) {
 }(Component);
 
 _defineProperty(ResizableRect, "propTypes", {
+  id: PropTypes.string,
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
   left: PropTypes.number.isRequired,
   top: PropTypes.number.isRequired,
@@ -865,7 +881,7 @@ _defineProperty(ResizableRect, "defaultProps", {
   rotateAngle: 0,
   rotatable: true,
   zoomable: '',
-  className: "",
+  className: '',
   style: {},
   minWidth: 10,
   minHeight: 10
